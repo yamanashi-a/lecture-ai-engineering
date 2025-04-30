@@ -79,3 +79,18 @@ elif st.session_state.page == "サンプルデータ管理":
 # --- フッターなど（任意） ---
 st.sidebar.markdown("---")
 st.sidebar.info("開発者: [Your Name]")
+
+import streamlit as st
+
+st.title("第1回 宿題：Streamlitアプリ")
+st.write("このアプリは FastAPI/Streamlit の連携を学ぶための演習です。")
+
+# 🔸 新機能：ユーザー入力フォーム
+with st.form(key="user_form"):
+    name = st.text_input("あなたの名前を教えてください")
+    ai_tool = st.selectbox("好きなAIは？", ["ChatGPT", "Gemma", "Claude", "その他"])
+    submitted = st.form_submit_button("送信")
+
+if submitted:
+    st.success(f"{name} さん、こんにちは！ {ai_tool} が好きなんですね 😊")
+
